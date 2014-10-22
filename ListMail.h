@@ -1,0 +1,401 @@
+//---------------------------------------------------------------------------
+
+#ifndef ListMailH
+#define ListMailH
+//---------------------------------------------------------------------------
+#include <Classes.hpp>
+#include <Controls.hpp>
+#include <StdCtrls.hpp>
+#include <Forms.hpp>
+#include "RzButton.hpp"
+#include "RzEdit.hpp"
+#include "RzPanel.hpp"
+#include <ExtCtrls.hpp>
+#include <Mask.hpp>
+#include "cxContainer.hpp"
+#include "cxControls.hpp"
+#include "cxEdit.hpp"
+#include "cxMemo.hpp"
+#include "cxTextEdit.hpp"
+#include "RzLabel.hpp"
+#include <ImgList.hpp>
+#include "cxClasses.hpp"
+#include "cxCurrencyEdit.hpp"
+#include "cxCustomData.hpp"
+#include "cxData.hpp"
+#include "cxDataStorage.hpp"
+#include "cxDBData.hpp"
+#include "cxFilter.hpp"
+#include "cxGraphics.hpp"
+#include "cxGrid.hpp"
+#include "cxGridBandedTableView.hpp"
+#include "cxGridCustomTableView.hpp"
+#include "cxGridCustomView.hpp"
+#include "cxGridDBBandedTableView.hpp"
+#include "cxGridDBTableView.hpp"
+#include "cxGridLevel.hpp"
+#include "cxGridTableView.hpp"
+#include "cxStyles.hpp"
+#include "RzSplit.hpp"
+#include <DB.hpp>
+#include "RzTabs.hpp"
+#include <ADODB.hpp>
+#include "cxButtonEdit.hpp"
+#include "RzShellDialogs.hpp"
+#include "frxClass.hpp"
+#include "frxExportPDF.hpp"
+#include "frxDBSet.hpp"
+#include "frxPreview.hpp"
+#include "cxCheckBox.hpp"
+#include <Graphics.hpp>
+#include "cxLookAndFeelPainters.hpp"
+#include "cxLookAndFeels.hpp"
+#include "dxSkinBlack.hpp"
+#include "dxSkinBlue.hpp"
+#include "dxSkinCaramel.hpp"
+#include "dxSkinCoffee.hpp"
+#include "dxSkinDarkRoom.hpp"
+#include "dxSkinDarkSide.hpp"
+#include "dxSkinFoggy.hpp"
+#include "dxSkinGlassOceans.hpp"
+#include "dxSkiniMaginary.hpp"
+#include "dxSkinLilian.hpp"
+#include "dxSkinLiquidSky.hpp"
+#include "dxSkinLondonLiquidSky.hpp"
+#include "dxSkinMcSkin.hpp"
+#include "dxSkinMoneyTwins.hpp"
+#include "dxSkinOffice2007Black.hpp"
+#include "dxSkinOffice2007Blue.hpp"
+#include "dxSkinOffice2007Green.hpp"
+#include "dxSkinOffice2007Pink.hpp"
+#include "dxSkinOffice2007Silver.hpp"
+#include "dxSkinOffice2010Black.hpp"
+#include "dxSkinOffice2010Blue.hpp"
+#include "dxSkinOffice2010Silver.hpp"
+#include "dxSkinPumpkin.hpp"
+#include "dxSkinsCore.hpp"
+#include "dxSkinscxPCPainter.hpp"
+#include "dxSkinsDefaultPainters.hpp"
+#include "dxSkinSeven.hpp"
+#include "dxSkinSharp.hpp"
+#include "dxSkinSilver.hpp"
+#include "dxSkinSpringTime.hpp"
+#include "dxSkinStardust.hpp"
+#include "dxSkinSummer2008.hpp"
+#include "dxSkinValentine.hpp"
+#include "dxSkinXmas2008Blue.hpp"
+#include "dxSkinBlueprint.hpp"
+#include "dxSkinDevExpressDarkStyle.hpp"
+#include "dxSkinDevExpressStyle.hpp"
+#include "dxSkinHighContrast.hpp"
+#include "dxSkinSevenClassic.hpp"
+#include "dxSkinSharpPlus.hpp"
+#include "dxSkinTheAsphaltWorld.hpp"
+#include "dxSkinVS2010.hpp"
+#include "dxSkinWhiteprint.hpp"
+#include "cxNavigator.hpp"
+//---------------------------------------------------------------------------
+class TFrListMail : public TForm
+{
+__published:	// IDE-managed Components
+	TRzPanel *RzPanel2;
+	TRzToolButton *RzToolButton1;
+	TRzSpacer *RzSpacer1;
+	TRzToolButton *RzToolButton2;
+	TRzSpacer *RzSpacer2;
+	TImageList *ImageList1;
+	TADOQuery *QEmplUserDol2;
+	TAutoIncField *QEmplUserDol2Idn;
+	TStringField *QEmplUserDol2FamIO;
+	TWideStringField *QEmplUserDol2Mail;
+	TIntegerField *QEmplUserDol2fTurn;
+	TDataSource *DSEmplUserDol2;
+	TRzToolButton *RzToolButton4;
+	TRzSpacer *RzSpacer3;
+	TDataSource *DSEmplUserDolSheet;
+	TADOQuery *QEmplUserDolSheet;
+	TTimer *TmEmplUser;
+	TADOQuery *QRasp;
+	TIntegerField *QRaspIdUserBM;
+	TIntegerField *QRaspId24NameStatus;
+	TIntegerField *QRaspId256TypeRasp;
+	TIntegerField *QRaspId24City;
+	TDateTimeField *QRaspDateRasp;
+	TStringField *QRaspNumbRaspName;
+	TMemoField *QRaspRaspNameRTF;
+	TMemoField *QRaspContentTargetRTF;
+	TIntegerField *QRaspId24NameStatuser;
+	TMemoField *QRaspContentRTF;
+	TIntegerField *QRaspEmplDol;
+	TIntegerField *QRaspIdEmplUsers;
+	TStringField *QRaspRaspName;
+	TDateTimeField *QRaspDateIns;
+	TIntegerField *QRaspIdIns;
+	TDateTimeField *QRaspDateMod;
+	TIntegerField *QRaspIdMod;
+	TDateTimeField *QRaspDateDel;
+	TIntegerField *QRaspIdDel;
+	TIntegerField *QRaspVidRasp;
+	TStringField *QRaspFamIO;
+	TStringField *QRaspauFamIO;
+	TStringField *QRaspiText;
+	TStringField *QRaspiText_1;
+	TStringField *QRaspiText_2;
+	TStringField *QRaspFamIO_1;
+	TWideStringField *QRaspDol;
+	TStringField *QRaspTmpGetDate;
+	TStringField *QRaspauFamIO_1;
+	TRzPanel *RzPanel4;
+	TRzSplitter *RzSplitter1;
+	TRzPanel *RzPanel7;
+	TRzToolButton *RzToolButton3;
+	TRzPageControl *pcSoglasovanieRassilka;
+	TRzTabSheet *tsSoglasovanie;
+	TcxGrid *cxGridEmplUserDol;
+	TcxGridDBColumn *cxGridDBColumn1;
+	TcxGridDBColumn *cxGridDBColumn2;
+	TcxGridDBColumn *cxGridDBColumn3;
+	TcxGridDBColumn *cxGridDBColumn4;
+	TcxGridDBColumn *cxGridDBColumn5;
+	TcxGridDBColumn *cxGridDBColumn6;
+	TcxGridDBColumn *cxGridDBColumn7;
+	TcxGridDBColumn *cxGridDBColumn8;
+	TcxGridDBBandedTableView *cxGridTableViewEmplUser;
+	TcxGridDBBandedColumn *cxGridTableViewEmplUserFamIO;
+	TcxGridDBBandedColumn *cxGridTableViewEmplUserMail;
+	TcxGridDBBandedColumn *cxGridTableViewEmplUserfTurn;
+	TcxGridDBBandedColumn *cxGridTableViewEmplUserDol;
+	TcxGridLevel *cxGridLevel1;
+	TRzTabSheet *tsRassilka;
+	TcxGrid *cxGridEmplUserDolSheet;
+	TcxGridDBColumn *cxGridDBColumn9;
+	TcxGridDBColumn *cxGridDBColumn10;
+	TcxGridDBColumn *cxGridDBColumn11;
+	TcxGridDBColumn *cxGridDBColumn12;
+	TcxGridDBColumn *cxGridDBColumn13;
+	TcxGridDBColumn *cxGridDBColumn14;
+	TcxGridDBColumn *cxGridDBColumn15;
+	TcxGridDBColumn *cxGridDBColumn16;
+	TcxGridDBBandedTableView *cxGridDBBandedTableView1;
+	TcxGridDBBandedColumn *cxGridDBBandedColumn1;
+	TcxGridDBBandedColumn *cxGridDBBandedColumn2;
+	TcxGridDBBandedColumn *cxGridDBBandedColumn4;
+	TcxGridLevel *cxGridLevel2;
+	TRzPanel *RzPanel6;
+	TRzLabel *RzLabel2;
+	TcxMemo *reContentRTF;
+	TRzOpenDialog *RzOpenDialog1;
+	TDataSource *DSMailPathAddFiles;
+	TADOQuery *QMailPathAddFiles;
+	TADOQuery *QTmpTable;
+	TRzPanel *RzPanel3;
+	TfrxDBDataset *frxDSRasp;
+	TfrxPDFExport *frxPDFExport1;
+	TfrxReport *frxRaspAlter;
+	TfrxDBDataset *frxDSRaspDetailAlter;
+	TADOQuery *QRaspDetailAlter;
+	TIntegerField *QRaspDetailAlterIdn;
+	TStringField *QRaspDetailAlterComplectName;
+	TStringField *QRaspDetailAlterProduceName;
+	TStringField *QRaspDetailAlterNameRaspDetail;
+	TBCDField *QRaspDetailAlterCostWithNDS;
+	TBCDField *QRaspDetailAlterCostWithoutNDS;
+	TBCDField *QRaspDetailAlterCostOneWithoutNDS;
+	TBCDField *QRaspDetailAlterCostComplectWithNDS;
+	TBCDField *QRaspDetailAlterCostomplectWithoutNDS;
+	TBCDField *QRaspDetailAlterCostMINWithNDS;
+	TBCDField *QRaspDetailAlterCostMINWithoutNDS;
+	TStringField *QRaspDetailAlterTNumbNE;
+	TIntegerField *QRaspDetailAlterfAdv;
+	TIntegerField *QRaspDetailAlterfAdvMIN;
+	TStringField *QRaspDetailAlterTfAdv;
+	TIntegerField *QRaspDetailAlterProcNDS;
+	TIntegerField *QRaspDetailAlterPIdn;
+	TIntegerField *QRaspDetailAlterfType;
+	TfrxPreview *frxPreview1;
+	TfrxDBDataset *frxDSEmplUserDol;
+	TADOQuery *QEmplUserDol;
+	TAutoIncField *AutoIncField2;
+	TStringField *StringField2;
+	TWideStringField *WideStringField3;
+	TIntegerField *IntegerField2;
+	TWideStringField *WideStringField4;
+	TfrxDBDataset *frxDSEmplUserDolRass;
+	TADOQuery *QEmplUserDolRass;
+	TAutoIncField *AutoIncField3;
+	TStringField *StringField3;
+	TWideStringField *WideStringField5;
+	TIntegerField *IntegerField3;
+	TWideStringField *WideStringField6;
+	TADOQuery *QRaspDetail;
+	TAutoIncField *QRaspDetailIdn;
+	TIntegerField *QRaspDetailPIdn;
+	TIntegerField *QRaspDetailidRasp;
+	TStringField *QRaspDetailiText;
+	TIntegerField *QRaspDetailYear;
+	TIntegerField *QRaspDetailidAdvProduceClass;
+	TStringField *QRaspDetailiText_1;
+	TStringField *QRaspDetailNameRaspDetail;
+	TBCDField *QRaspDetailCostWithNDS;
+	TBCDField *QRaspDetailCostWithoutNDS;
+	TBCDField *QRaspDetailCostNDS;
+	TBCDField *QRaspDetailProcNDS;
+	TBCDField *QRaspDetailDiscount;
+	TBCDField *QRaspDetailProcDiscount;
+	TIntegerField *QRaspDetailNumbNE;
+	TIntegerField *QRaspDetailfAdv;
+	TIntegerField *QRaspDetailfType;
+	TDateTimeField *QRaspDetailDateIns;
+	TIntegerField *QRaspDetailIdIns;
+	TDateTimeField *QRaspDetailDateMod;
+	TIntegerField *QRaspDetailIdMod;
+	TDateTimeField *QRaspDetailDateDel;
+	TIntegerField *QRaspDetailIdDel;
+	TIntegerField *QRaspDetailId24TypeProduceIndex;
+	TMemoField *QEmplUserDol2MailText;
+	TStringField *QMailPathAddFilesMailPathAddFiles;
+	TAutoIncField *QEmplUserDolSheetIdn;
+	TStringField *QEmplUserDolSheetFamIO;
+	TWideStringField *QEmplUserDolSheetMail;
+	TIntegerField *QEmplUserDolSheetfTurn;
+	TWideStringField *QEmplUserDolSheetDol;
+	TADOQuery *QListComments;
+	TAutoIncField *QListCommentsIdn;
+	TIntegerField *QListCommentsidRasp;
+	TIntegerField *QListCommentsTypeCost;
+	TIntegerField *QListCommentsId256NameDiscount;
+	TIntegerField *QListCommentsId256NameAction;
+	TDateTimeField *QListCommentsDateRealization;
+	TStringField *QListCommentsPrognozEffects;
+	TStringField *QListCommentsGrantingConditions;
+	TDateTimeField *QListCommentsDateIns;
+	TIntegerField *QListCommentsIdIns;
+	TDateTimeField *QListCommentsDateMod;
+	TIntegerField *QListCommentsIdMod;
+	TDateTimeField *QListCommentsDateDel;
+	TIntegerField *QListCommentsIdDel;
+	TIntegerField *QListCommentsId256CostDiscount;
+	TADOQuery *QListRasp;
+	TAutoIncField *QListRaspIdn;
+	TIntegerField *QListRaspIdUserBM;
+	TIntegerField *QListRaspId24NameStatus;
+	TIntegerField *QListRaspId256TypeRasp;
+	TIntegerField *QListRaspId24City;
+	TDateTimeField *QListRaspDateRasp;
+	TStringField *QListRaspNumbRaspName;
+	TMemoField *QListRaspRaspNameRTF;
+	TMemoField *QListRaspContentTargetRTF;
+	TIntegerField *QListRaspId24NameStatuser;
+	TMemoField *QListRaspContentRTF;
+	TIntegerField *QListRaspEmplDol;
+	TIntegerField *QListRaspIdEmplUsers;
+	TStringField *QListRaspRaspName;
+	TDateTimeField *QListRaspDateIns;
+	TIntegerField *QListRaspIdIns;
+	TDateTimeField *QListRaspDateMod;
+	TIntegerField *QListRaspIdMod;
+	TDateTimeField *QListRaspDateDel;
+	TIntegerField *QListRaspIdDel;
+	TStringField *QListRaspFamIO;
+	TStringField *QListRaspauFamIO;
+	TIntegerField *QListRaspVidRasp;
+	TMemoField *QListRaspComment;
+	TStringField *QListRaspPathAddFiles;
+	TADOQuery *Qw;
+	TADOQuery *Qw2;
+	TRzToolButton *RzToolButton5;
+	TRzSpacer *RzSpacer4;
+	TStringField *QEmplUserDol2Dol;
+	TIntegerField *QEmplUserDol2fType;
+	TcxGridDBBandedColumn *cxGridTableViewEmplUserColumn1;
+	TADOQuery *QEmplUserDol3;
+	TAutoIncField *QEmplUserDol3Idn;
+	TStringField *QEmplUserDol3FamIO;
+	TWideStringField *QEmplUserDol3Mail;
+	TIntegerField *QEmplUserDol3fTurn;
+	TIntegerField *QEmplUserDol3fType;
+	TMemoField *QEmplUserDol3MailText;
+	TADOQuery *QNE;
+	TAutoIncField *QNEIdn;
+	TIntegerField *QNEPIdn;
+	TIntegerField *QNEidRasp;
+	TIntegerField *QNEidAdvProduceClass;
+	TStringField *QNENameRaspDetail;
+	TIntegerField *QNENumbNE;
+	TIntegerField *QNEYear;
+	TBCDField *QNECostWithNDS;
+	TBCDField *QNECostWithoutNDS;
+	TBCDField *QNECostNDS;
+	TBCDField *QNEProcNDS;
+	TBCDField *QNEDiscount;
+	TBCDField *QNEProcDiscount;
+	TIntegerField *QNEfAdv;
+	TIntegerField *QNEfType;
+	TIntegerField *QNEIdIns;
+	TADOQuery *QAddFilesEXEL;
+	TStringField *QAddFilesEXELNameFile;
+	TRzTabSheet *tsCostComitet;
+	TcxGrid *cxGridCostComitet;
+	TcxGridDBColumn *cxGridDBColumn17;
+	TcxGridDBColumn *cxGridDBColumn18;
+	TcxGridDBColumn *cxGridDBColumn19;
+	TcxGridDBColumn *cxGridDBColumn20;
+	TcxGridDBColumn *cxGridDBColumn21;
+	TcxGridDBColumn *cxGridDBColumn22;
+	TcxGridDBColumn *cxGridDBColumn23;
+	TcxGridDBColumn *cxGridDBColumn24;
+	TcxGridDBBandedTableView *cxGridDBBandedTableView2;
+	TcxGridDBBandedColumn *cxGridDBBandedColumn3;
+	TcxGridDBBandedColumn *cxGridDBBandedColumn5;
+	TcxGridDBBandedColumn *cxGridDBBandedColumn6;
+	TcxGridLevel *cxGridLevel3;
+	TADOQuery *QCostComitet;
+	TAutoIncField *AutoIncField1;
+	TStringField *StringField1;
+	TWideStringField *WideStringField1;
+	TIntegerField *IntegerField1;
+	TWideStringField *WideStringField2;
+	TDataSource *DSCostComitet;
+	TRzPanel *RzPanel1;
+	TRzToolButton *RzToolButton6;
+	TRzSpacer *RzSpacer5;
+	TRzPanel *RzPanel300;
+	TImage *Image1;
+	TRzLabel *RzLabel4;
+	TADOQuery *QAddFilesDOC;
+	TStringField *StringField4;
+	void __fastcall FormClose(TObject *Sender, TCloseAction &Action);
+	void __fastcall RzToolButton2Click(TObject *Sender);
+	void __fastcall FormKeyDown(TObject *Sender, WORD &Key, TShiftState Shift);
+	void __fastcall RzToolButton3Click(TObject *Sender);
+	void __fastcall FormActivate(TObject *Sender);
+	void __fastcall RzToolButton4Click(TObject *Sender);
+	void __fastcall TmEmplUserTimer(TObject *Sender);
+	void __fastcall RzToolButton1Click(TObject *Sender);
+	void __fastcall cxGridDBBandedTableView2Column2PropertiesButtonClick(
+          TObject *Sender, int AButtonIndex);
+	void __fastcall RzBitBtn3Click(TObject *Sender);
+	void __fastcall frxRaspAlterGetValue(const UnicodeString VarName, Variant &Value);
+	void __fastcall RzToolButton5Click(TObject *Sender);
+	void __fastcall pcSoglasovanieRassilkaChange(TObject *Sender);
+	void __fastcall RzToolButton6Click(TObject *Sender);
+private:	// User declarations
+ TLocateOptions Opts;
+ Variant locvalues[1];
+    AnsiString  vsSQLQw;
+	TfrxReport *fReport;
+	UnicodeString TempTableName;
+	AnsiString  vsSQLTmpTable;
+	bool fAllEntering;//Флаг проверки готовности Распоряжения и комментария к рассылке( по заполненности полей)
+                     // false-Не заполнены все поля. true-заполнены.
+public:		// User declarations
+	__fastcall TFrListMail(TComponent* Owner);
+	int IdRasp;//Код распоряжения
+
+
+};
+//---------------------------------------------------------------------------
+extern PACKAGE TFrListMail *FrListMail;
+extern char flFrListMail;
+//---------------------------------------------------------------------------
+#endif

@@ -1,0 +1,73 @@
+//---------------------------------------------------------------------------
+
+
+#pragma hdrstop
+
+#include "dmEditRaspDetail.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+#pragma classgroup "Vcl.Controls.TControl"
+#pragma resource "*.dfm"
+//---------------------------------------------------------------------------
+TdmRaspDetail *dmRaspDetail;
+//---------------------------------------------------------------------------
+static AnsiString sqlCompositionPi =
+    "select iText from spl_LbText where iLvl = 1540 order by Idn";
+//---------------------------------------------------------------------------
+__fastcall TdmRaspDetail::TdmRaspDetail(TComponent* Owner)
+  : TDataModule(Owner)
+{
+}
+//------------------------------------------------------------------------------
+void __fastcall TdmRaspDetail::OpenTmpQuery(AnsiString sql)
+{
+  if(TmpQuery->Active == true)
+    TmpQuery->Close();
+  TmpQuery->SQL->Add(sql);
+  TmpQuery->Open();
+}
+//------------------------------------------------------------------------------
+bool __fastcall TdmRaspDetail::RaspDetailCheckComplect()
+{
+  int RecCount;
+  String q1 =
+    " SELECT idn "
+    "   FROM dbo.bm_RaspDetail "
+    "     WHERE Idn = "     + IntToStr(QRaspDetail->FieldByName("PIdn")->AsInteger) + String(" "
+    "       AND idRasp = ") + IntToStr(QRaspDetail->FieldByName("idRasp")->AsInteger) + String(" "
+    "       AND fType = 1 "
+    "       AND DateDel IS NULL");
+
+  OpenTmpQuery(q1);
+  RecCount = TmpQuery->RecordCount;
+  TmpQuery->Close();
+  return RecCount != 0;
+}
+//---------------------------------------------------------------------------
+AnsiString __fastcall TdmRaspDetail::RaspDetailValue(AnsiString fieldName)
+{
+  return RaspDetail->FieldByName(fieldName)->AsString;
+}
+//---------------------------------------------------------------------------
+TField* __fastcall TdmRaspDetail::RaspDetailField(AnsiString fieldName)
+{
+  return RaspDetail->FieldByName(fieldName);
+}
+//---------------------------------------------------------------------------
+ TField* __fastcall TdmRaspDetail::TmpQueryField(AnsiString fieldName)
+ {
+  return TmpQuery->FieldByName(fieldName);
+ }
+//---------------------------------------------------------------------------
+AnsiString __fastcall TdmRaspDetail::TmpQueryValue(AnsiString fieldName)
+{
+  return TmpQuery->FieldByName(fieldName)->AsString;
+}
+//---------------------------------------------------------------------------
+void __fastcall TdmRaspDetail::OpenPI(void)
+{
+  OpenTmpQuery(sqlCompositionPi);
+}
+//---------------------------------------------------------------------------
+
+

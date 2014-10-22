@@ -1,0 +1,53 @@
+//---------------------------------------------------------------------------
+
+
+#pragma hdrstop
+
+#include "dmEditRaspDetail.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+#pragma classgroup "Vcl.Controls.TControl"
+#pragma resource "*.dfm"
+//---------------------------------------------------------------------------
+__fastcall TdmRaspDetail::TdmRaspDetail(TComponent* Owner)
+  : TDataModule(Owner)
+{
+}
+//------------------------------------------------------------------------------
+void __fastcall TdmRaspDetail::OpenTmpQuery(AnsiString sql)
+{
+  if(TmpQuery->Active == true)
+    TmpQuery->Close();
+  TmpQuery->SQL->Add(sql);
+  TmpQuery->Open();
+}
+//------------------------------------------------------------------------------
+bool __fastcall TdmRaspDetail::QRaspDetailCheckComplect()
+{
+  int RecCount;
+  String q1 =
+    " SELECT idn "
+    "   FROM dbo.bm_RaspDetail "
+    "     WHERE Idn = "     + IntToStr(QRaspDetail->FieldByName("PIdn")->AsInteger) + String(" "
+    "       AND idRasp = ") + IntToStr(QRaspDetail->FieldByName("idRasp")->AsInteger) + String(" "
+    "       AND fType = 1 "
+    "       AND DateDel IS NULL");
+
+  OpenTmpQuery(q1);
+  RecCount = TmpQuery->RecordCount;
+  TmpQuery->Close();
+  return RecCount != 0;
+}
+//---------------------------------------------------------------------------
+AnsiString __fastcall TdmRaspDetail::QRaspDetailValue(AnsiString fieldName)
+{
+  return QRaspDetail->FieldByName(fieldName)->AsString;
+}
+//---------------------------------------------------------------------------
+TField* __fastcall TdmRaspDetail::QRaspDetailField(AnsiString fieldName)
+{
+  return QRaspDetail->FieldByName(fieldName);
+}
+//---------------------------------------------------------------------------
+
+

@@ -1,0 +1,81 @@
+object dmRaspDetail: TdmRaspDetail
+  OldCreateOrder = False
+  Height = 427
+  Width = 637
+  object QRaspDetail: TADOQuery
+    Connection = MainForm.CallCenterConnect
+    CursorType = ctStatic
+    LockType = ltReadOnly
+    Parameters = <
+      item
+        Name = 'D0'
+        Attributes = [paSigned, paNullable]
+        DataType = ftInteger
+        Precision = 10
+        Size = 4
+        Value = 1
+      end
+      item
+        Name = 'D1'
+        Attributes = [paSigned]
+        DataType = ftInteger
+        Precision = 10
+        Size = 4
+        Value = 1
+      end>
+    SQL.Strings = (
+      'SELECT A.Idn'
+      '      ,A.PIdn'
+      '      ,A.idRasp'
+      '      ,A.Id24TypeProduceIndex'
+      '      ,B.iText'
+      '      ,A.Year'
+      '      ,A.idAdvProduceClass'
+      '      ,D.iText'
+      '      ,A.NameRaspDetail'
+      '      ,A.CostWithNDS'
+      '      ,A.CostWithoutNDS'
+      '      ,A.CostNDS'
+      '      ,A.ProcNDS'
+      '      ,A.Discount'
+      '      ,A.ProcDiscount'
+      '      ,A.NumbNE'
+      '      ,A.fAdv'
+      '      ,A.fAdvMIN'
+      '      ,A.fType'
+      '      ,A.DateIns'
+      '      ,A.IdIns'
+      '      ,A.DateMod'
+      '      ,A.IdMod'
+      '      ,A.DateDel'
+      '      ,A.IdDel'
+      '      ,A.CostMINWithNDS'
+      '      ,A.CostMINWithoutNDS'
+      '      ,A.CostBaseWithNDS'
+      '      ,A.CostBudjetWithNDS'
+      '      ,A.DateJobMIN'
+      '      ,A.DateJobMAX'
+      '      ,A.KanalSale'
+      '      ,isnull(A.fNoNDS,0) fNoNDS '
+      '      ,A.AlterName'
+      '      ,A.NoteName'
+      '      ,isnull(A.CompositionOfPI,0) as CompositionOfPI'
+      '      ,DateEventStart'
+      '      ,DateEventEnd'
+      '      ,ColPI'
+      '  FROM bm_RaspDetail A '
+      '  LEFT JOIN spl_LbText24 B on B.Idn=A.Id24TypeProduceIndex'
+      '  LEFT JOIN all_AdvProduceClass C on C.idn=A.idAdvProduceClass'
+      ' LEFT JOIN spl_LbText512 D ON D.Idn=C.id512Name '
+      ''
+      'WHERE A.idRasp=:D0 and A.DateDel is null AND A.Idn=:D1;')
+    Left = 16
+    Top = 14
+  end
+  object TmpQuery: TADOQuery
+    Connection = MainForm.CallCenterConnect
+    Parameters = <>
+    Left = 88
+    Top = 16
+  end
+end

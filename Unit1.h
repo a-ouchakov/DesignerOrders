@@ -1,0 +1,208 @@
+//---------------------------------------------------------------------------
+
+#ifndef Unit1H
+#define Unit1H
+//---------------------------------------------------------------------------
+#include <System.Classes.hpp>
+#include <Vcl.Controls.hpp>
+#include <Vcl.StdCtrls.hpp>
+#include <Vcl.Forms.hpp>
+#include "cxCalendar.hpp"
+#include "cxControls.hpp"
+#include "cxCustomData.hpp"
+#include "cxDBTL.hpp"
+#include "cxGraphics.hpp"
+#include "cxInplaceContainer.hpp"
+#include "cxLookAndFeelPainters.hpp"
+#include "cxLookAndFeels.hpp"
+#include "cxMaskEdit.hpp"
+#include "cxStyles.hpp"
+#include "cxTL.hpp"
+#include "cxTLData.hpp"
+#include "cxTLdxBarBuiltInMenu.hpp"
+#include "dxSkinsCore.hpp"
+#include "dxSkinsDefaultPainters.hpp"
+#include <Data.DB.hpp>
+#include <Data.Win.ADODB.hpp>
+#include <Vcl.ImgList.hpp>
+#include "dxSkinBlack.hpp"
+#include "dxSkinBlue.hpp"
+#include "dxSkinCaramel.hpp"
+#include "dxSkinCoffee.hpp"
+#include "dxSkinDarkRoom.hpp"
+#include "dxSkinDarkSide.hpp"
+#include "dxSkinFoggy.hpp"
+#include "dxSkinGlassOceans.hpp"
+#include "dxSkiniMaginary.hpp"
+#include "dxSkinLilian.hpp"
+#include "dxSkinLiquidSky.hpp"
+#include "dxSkinLondonLiquidSky.hpp"
+#include "dxSkinMcSkin.hpp"
+#include "dxSkinMoneyTwins.hpp"
+#include "dxSkinOffice2007Black.hpp"
+#include "dxSkinOffice2007Blue.hpp"
+#include "dxSkinOffice2007Green.hpp"
+#include "dxSkinOffice2007Pink.hpp"
+#include "dxSkinOffice2007Silver.hpp"
+#include "dxSkinOffice2010Black.hpp"
+#include "dxSkinOffice2010Blue.hpp"
+#include "dxSkinOffice2010Silver.hpp"
+#include "dxSkinPumpkin.hpp"
+#include "dxSkinSeven.hpp"
+#include "dxSkinSharp.hpp"
+#include "dxSkinSilver.hpp"
+#include "dxSkinSpringTime.hpp"
+#include "dxSkinStardust.hpp"
+#include "dxSkinSummer2008.hpp"
+#include "dxSkinValentine.hpp"
+#include "dxSkinXmas2008Blue.hpp"
+#include "dxSkinBlueprint.hpp"
+#include "dxSkinDevExpressDarkStyle.hpp"
+#include "dxSkinDevExpressStyle.hpp"
+#include "dxSkinHighContrast.hpp"
+#include "dxSkinSevenClassic.hpp"
+#include "dxSkinSharpPlus.hpp"
+#include "dxSkinTheAsphaltWorld.hpp"
+#include "dxSkinVS2010.hpp"
+#include "dxSkinWhiteprint.hpp"
+//---------------------------------------------------------------------------
+class TForm1 : public TForm
+{
+__published:	// IDE-managed Components
+	TcxDBTreeList *tlRaspDetail;
+	TcxDBTreeListColumn *tlRaspDetailcxDBTreeListColumn3;
+	TcxDBTreeListColumn *tlRaspDetailcxDBTreeListColumn2;
+	TcxDBTreeListColumn *tlRaspDetailNameRaspDetail;
+	TcxDBTreeListColumn *tlRaspDetailfAdv;
+	TcxDBTreeListColumn *tlRaspDetailIdn;
+	TcxDBTreeListColumn *tlRaspDetailProcNDS;
+	TcxDBTreeListColumn *tlRaspDetailPIdn;
+	TcxDBTreeListColumn *tlRaspDetailidRasp;
+	TcxDBTreeListColumn *tlRaspDetailidAdvProduceClass;
+	TcxDBTreeListColumn *tlRaspDetailiText_1;
+	TcxDBTreeListColumn *tlRaspDetailiText;
+	TcxDBTreeListColumn *tlRaspDetailCostWithNDS;
+	TcxDBTreeListColumn *tlRaspDetailCostWithoutNDS;
+	TcxDBTreeListColumn *tlRaspDetailCostNDS;
+	TcxDBTreeListColumn *tlRaspDetailYear;
+	TcxDBTreeListColumn *tlRaspDetailDiscount;
+	TcxDBTreeListColumn *tlRaspDetailProcDiscount;
+	TcxDBTreeListColumn *tlRaspDetailfType;
+	TcxDBTreeListColumn *tlRaspDetailDateIns;
+	TcxDBTreeListColumn *tlRaspDetailNumbNE;
+	TcxDBTreeListColumn *tlRaspDetailIdIns;
+	TcxDBTreeListColumn *tlRaspDetailDateDel;
+	TcxDBTreeListColumn *tlRaspDetailIdDel;
+	TcxDBTreeListColumn *tlRaspDetailId24TypeProduceIndex;
+	TcxDBTreeListColumn *tlRaspDetailIdMod;
+	TcxDBTreeListColumn *tlRaspDetailDateMod;
+	TcxDBTreeListColumn *tlRaspDetailcxDBTreeListColumn1;
+	TcxDBTreeListColumn *tlRaspDetailcxDBTreeListColumn4;
+	TcxDBTreeListColumn *tlRaspDetailcxDBTreeListColumn5;
+	TcxDBTreeListColumn *tlRaspDetailcxDBTreeListColumn6;
+	TcxDBTreeList *cxDBTreeList1;
+	TDataSource *DSRaspDetail;
+	TADOQuery *QRaspDetail;
+	TImageList *ImageList1;
+	TAutoIncField *QRaspDetailIdn;
+	TIntegerField *QRaspDetailPIdn;
+	TIntegerField *QRaspDetailidRasp;
+	TIntegerField *QRaspDetailId24TypeProduceIndex;
+	TIntegerField *QRaspDetailidAdvProduceClass;
+	TIntegerField *QRaspDetailidAdvTNClass;
+	TStringField *QRaspDetailNameRaspDetail;
+	TIntegerField *QRaspDetailNumbNE;
+	TIntegerField *QRaspDetailYear;
+	TBCDField *QRaspDetailCostWithNDS;
+	TBCDField *QRaspDetailCostWithoutNDS;
+	TBCDField *QRaspDetailCostNDS;
+	TBCDField *QRaspDetailProcNDS;
+	TBCDField *QRaspDetailDiscount;
+	TBCDField *QRaspDetailProcDiscount;
+	TIntegerField *QRaspDetailfAdv;
+	TIntegerField *QRaspDetailfAdvMIN;
+	TIntegerField *QRaspDetailfType;
+	TDateTimeField *QRaspDetailDateIns;
+	TIntegerField *QRaspDetailIdIns;
+	TDateTimeField *QRaspDetailDateMod;
+	TIntegerField *QRaspDetailIdMod;
+	TDateTimeField *QRaspDetailDateDel;
+	TIntegerField *QRaspDetailIdDel;
+	TBCDField *QRaspDetailCostMINWithNDS;
+	TBCDField *QRaspDetailCostMINWithoutNDS;
+	TBCDField *QRaspDetailCostBaseWithNDS;
+	TBCDField *QRaspDetailCostBudjetWithNDS;
+	TDateTimeField *QRaspDetailDateJobMIN;
+	TDateTimeField *QRaspDetailDateJobMAX;
+	TIntegerField *QRaspDetailKanalSale;
+	TIntegerField *QRaspDetailId32NameUnit;
+	TIntegerField *QRaspDetailId32NameItemType;
+	TStringField *QRaspDetailItemId;
+	TIntegerField *QRaspDetailfNoNDS;
+	TIntegerField *QRaspDetailIdnAxapta;
+	TIntegerField *QRaspDetailfState;
+	TStringField *QRaspDetailNameAxapta;
+	TStringField *QRaspDetailItemIdAxapta;
+	TDateTimeField *QRaspDetailDateLastExport;
+	TIntegerField *QRaspDetailidAdvProduceClassCopy;
+	TIntegerField *QRaspDetailIdnAdvCond;
+	TIntegerField *QRaspDetailfTime_Zero;
+	TIntegerField *QRaspDetailMergedCount;
+	TIntegerField *QRaspDetailIdAdvPriseList;
+	TIntegerField *QRaspDetailIdGetPI;
+	TIntegerField *QRaspDetailVOrder;
+	TcxDBTreeListColumn *cxDBTreeList1Idn;
+	TcxDBTreeListColumn *cxDBTreeList1PIdn;
+	TcxDBTreeListColumn *cxDBTreeList1idRasp;
+	TcxDBTreeListColumn *cxDBTreeList1Id24TypeProduceIndex;
+	TcxDBTreeListColumn *cxDBTreeList1idAdvProduceClass;
+	TcxDBTreeListColumn *cxDBTreeList1idAdvTNClass;
+	TcxDBTreeListColumn *cxDBTreeList1NameRaspDetail;
+	TcxDBTreeListColumn *cxDBTreeList1NumbNE;
+	TcxDBTreeListColumn *cxDBTreeList1Year;
+	TcxDBTreeListColumn *cxDBTreeList1CostWithNDS;
+	TcxDBTreeListColumn *cxDBTreeList1CostWithoutNDS;
+	TcxDBTreeListColumn *cxDBTreeList1CostNDS;
+	TcxDBTreeListColumn *cxDBTreeList1ProcNDS;
+	TcxDBTreeListColumn *cxDBTreeList1Discount;
+	TcxDBTreeListColumn *cxDBTreeList1ProcDiscount;
+	TcxDBTreeListColumn *cxDBTreeList1fAdv;
+	TcxDBTreeListColumn *cxDBTreeList1fAdvMIN;
+	TcxDBTreeListColumn *cxDBTreeList1fType;
+	TcxDBTreeListColumn *cxDBTreeList1DateIns;
+	TcxDBTreeListColumn *cxDBTreeList1IdIns;
+	TcxDBTreeListColumn *cxDBTreeList1DateMod;
+	TcxDBTreeListColumn *cxDBTreeList1IdMod;
+	TcxDBTreeListColumn *cxDBTreeList1DateDel;
+	TcxDBTreeListColumn *cxDBTreeList1IdDel;
+	TcxDBTreeListColumn *cxDBTreeList1CostMINWithNDS;
+	TcxDBTreeListColumn *cxDBTreeList1CostMINWithoutNDS;
+	TcxDBTreeListColumn *cxDBTreeList1CostBaseWithNDS;
+	TcxDBTreeListColumn *cxDBTreeList1CostBudjetWithNDS;
+	TcxDBTreeListColumn *cxDBTreeList1DateJobMIN;
+	TcxDBTreeListColumn *cxDBTreeList1DateJobMAX;
+	TcxDBTreeListColumn *cxDBTreeList1KanalSale;
+	TcxDBTreeListColumn *cxDBTreeList1Id32NameUnit;
+	TcxDBTreeListColumn *cxDBTreeList1Id32NameItemType;
+	TcxDBTreeListColumn *cxDBTreeList1ItemId;
+	TcxDBTreeListColumn *cxDBTreeList1fNoNDS;
+	TcxDBTreeListColumn *cxDBTreeList1IdnAxapta;
+	TcxDBTreeListColumn *cxDBTreeList1fState;
+	TcxDBTreeListColumn *cxDBTreeList1NameAxapta;
+	TcxDBTreeListColumn *cxDBTreeList1ItemIdAxapta;
+	TcxDBTreeListColumn *cxDBTreeList1DateLastExport;
+	TcxDBTreeListColumn *cxDBTreeList1idAdvProduceClassCopy;
+	TcxDBTreeListColumn *cxDBTreeList1IdnAdvCond;
+	TcxDBTreeListColumn *cxDBTreeList1fTime_Zero;
+	TcxDBTreeListColumn *cxDBTreeList1MergedCount;
+	TcxDBTreeListColumn *cxDBTreeList1IdAdvPriseList;
+	TcxDBTreeListColumn *cxDBTreeList1IdGetPI;
+	TcxDBTreeListColumn *cxDBTreeList1VOrder;
+private:	// User declarations
+public:		// User declarations
+	__fastcall TForm1(TComponent* Owner);
+};
+//---------------------------------------------------------------------------
+extern PACKAGE TForm1 *Form1;
+//---------------------------------------------------------------------------
+#endif

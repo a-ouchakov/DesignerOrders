@@ -1,0 +1,35 @@
+//---------------------------------------------------------------------------
+
+#ifndef dmEditRaspDetailH
+#define dmEditRaspDetailH
+//---------------------------------------------------------------------------
+#include <System.Classes.hpp>
+#include <Data.DB.hpp>
+#include <Data.Win.ADODB.hpp>
+//---------------------------------------------------------------------------
+class TdmRaspDetail : public TDataModule
+{
+__published:	// IDE-managed Components
+  // Компонент для запроса
+              TADOQuery *QRaspDetail;
+              TADOQuery *QTmpQuery;
+  TDataSource *DS;
+  TADOQuery *QueryPI;
+  TWideMemoField *QueryPIiText;
+private:	// User declarations
+  void        __fastcall OpenTmpQuery             (AnsiString sql);
+public:		// User declarations
+  TField*     __fastcall RaspDetailField          (AnsiString fieldName);
+  AnsiString  __fastcall RaspDetailValue          (AnsiString fieldName);
+              __fastcall TdmRaspDetail            (TComponent* Owner);
+  bool        __fastcall RaspDetailCheckComplect  (void);
+  TField*     __fastcall TmpQueryField            (AnsiString fieldName);
+  AnsiString  __fastcall TmpQueryValue            (AnsiString fieldName);
+  void        __fastcall OpenPI                   (void);
+	__property TADOQuery*  RaspDetail      = { read = QRaspDetail };
+  __property TADOQuery*  TmpQuery        = { read = QTmpQuery };
+};
+//---------------------------------------------------------------------------
+extern PACKAGE TdmRaspDetail *dmRaspDetail;
+//---------------------------------------------------------------------------
+#endif

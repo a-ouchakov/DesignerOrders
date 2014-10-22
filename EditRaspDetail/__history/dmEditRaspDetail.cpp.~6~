@@ -1,0 +1,42 @@
+//---------------------------------------------------------------------------
+
+
+#pragma hdrstop
+
+#include "dmEditRaspDetail.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+#pragma classgroup "Vcl.Controls.TControl"
+#pragma resource "*.dfm"
+//---------------------------------------------------------------------------
+__fastcall TdmRaspDetail::TdmRaspDetail(TComponent* Owner)
+  : TDataModule(Owner)
+{
+}
+//------------------------------------------------------------------------------
+bool __fastcall TdmRaspDetail::QRaspDetailCheckComplect()
+{
+  int RecCount;
+  String q1 =
+    " SELECT idn "
+    "   FROM dbo.bm_RaspDetail "
+    "     WHERE Idn = "     + IntToStr(QRaspDetailPIdn->Value) + String(" "
+    "       AND idRasp = ") + IntToStr(QRaspDetailidRasp->Value) + String(" "
+    "       AND fType = 1 "
+    "       AND DateDel IS NULL");
+
+  CmplQuer->SQL->Clear();
+  CmplQuer->SQL->Add(q1);
+  CmplQuer->Open();
+  RecCount = CmplQuer->RecordCount;
+  CmplQuer->Close());
+  return RecCount != 0;
+}
+//---------------------------------------------------------------------------
+AnsiString __fastcall TdmRaspDetail::QRaspDetailValue(AnsiString fieldName)
+{
+  return QRaspDetail->FieddByName(fieldName).AsString;
+}
+//---------------------------------------------------------------------------
+
+
